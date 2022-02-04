@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 
 from bakery.models import Bakery
@@ -14,9 +16,9 @@ class Order(models.Model):
         ('more', 'متفرقه'),
     ]
     STATUS = [
-        ('انتظار تایید پیک', 'انتظار تایید پیک'),
-        ('تو راهم', 'تو راهم'),
-        ('رسید دستش', 'رسید دستش'),
+        ('waiting', 'انتظار تایید پیک'),
+        ('accepted', 'تو راهم'),
+        ('received', 'رسید دستش'),
     ]
     bakery = models.ForeignKey(Bakery, on_delete=models.SET_NULL,
                                verbose_name='نانوا', null=True, )
@@ -36,6 +38,8 @@ class Order(models.Model):
 
     status = models.CharField(choices=STATUS, max_length=30, verbose_name='وضعیت')
     description = models.TextField(verbose_name='توضیحات')
+
+    # created_time = models.DateTimeField(datetime.now())
 
     def __str__(self):
         return f'{self.full_name}, {self.order_code}, {self.status}'
