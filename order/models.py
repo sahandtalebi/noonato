@@ -1,12 +1,11 @@
 from datetime import datetime
-
 from django.db import models
-
 from bakery.models import Bakery
 from delivery.models import Delivery
+from lib.models import BaseModel
 
 
-class Order(models.Model):
+class Order(BaseModel):
     BREAD_TYPE = [
         ('barbary', 'بربری'),
         ('sangak', 'سنگک'),
@@ -38,8 +37,6 @@ class Order(models.Model):
 
     status = models.CharField(choices=STATUS, max_length=30, verbose_name='وضعیت')
     description = models.TextField(verbose_name='توضیحات')
-
-    # created_time = models.DateTimeField(datetime.now())
 
     def __str__(self):
         return f'{self.full_name}, {self.order_code}, {self.status}'

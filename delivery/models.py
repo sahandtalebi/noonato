@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser, User
 
 class Delivery(User):
     delivery_count = models.IntegerField(default=0, verbose_name='تعداد سفارشات')
+    address = models.TextField(blank=True, null=True, verbose_name='آدرس')
 
     def __str__(self):
         return self.get_full_name()
