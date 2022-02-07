@@ -25,6 +25,7 @@ class Order(BaseModel):
 
     order_code = models.CharField(max_length=30, verbose_name='کد سفارش')
     full_name = models.CharField(max_length=120, verbose_name='نام و نام خانوادگی')
+    phone_number = models.CharField(max_length=11, verbose_name='شماره تماس')
     address = models.TextField(verbose_name='آدرس')
     post_code = models.IntegerField(verbose_name='کدپستی', default=0)
     map_address = models.URLField(verbose_name='نقشه گوگل', blank=True, null=True)

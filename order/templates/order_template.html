@@ -48,39 +48,25 @@
 
 
                                     <div class="list-group">
+
+                                        {% for order in accepted_order %}
+
                                         <a href="#"
                                            class="list-group-item list-group-item-action flex-column align-items-start active">
                                             <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">List group item heading</h5>
-                                                <small>3 days ago</small>
+                                                <h5 class="mb-1">{{ order.address }} </h5>
+                                                <small>{{ order.order_code }}</small>
                                             </div>
-                                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
-                                                sed diam eget risus varius
-                                                blandit.</p>
-                                            <small>Donec id elit non mi porta.</small>
+                                            <p class="mb-1"> نوع نان: {{ order.order_type }}</p>
+                                            <p class="mb-1"> تعداد:{{ order.order_count }} </p>
+                                            <p class="mb-1">{{ order.bakery}} نانوایی:  </p>
+                                            <p class="mb-1">{{ order.full_name }} | {{ order.phone_number }}</p>
+                                            <small>توضیحات سفارش:{{ order.description }}</small>
+                                        <button class="btn btn-success"></button>
                                         </a>
-                                        <a href="#"
-                                           class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">List group item heading</h5>
-                                                <small class="text-muted">3 days ago</small>
-                                            </div>
-                                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
-                                                sed diam eget risus varius
-                                                blandit.</p>
-                                            <small class="text-muted">Donec id elit non mi porta.</small>
-                                        </a>
-                                        <a href="#"
-                                           class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">List group item heading</h5>
-                                                <small class="text-muted">3 days ago</small>
-                                            </div>
-                                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas
-                                                sed diam eget risus varius
-                                                blandit.</p>
-                                            <small class="text-muted">Donec id elit non mi porta.</small>
-                                        </a>
+
+                                        {% endfor %}
+
                                     </div>
                                 </div>
                             </div>

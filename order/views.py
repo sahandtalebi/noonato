@@ -11,6 +11,8 @@ def order_view(request):
     # print(open_order)
 
     accepted_order = Order.objects.filter(delivery__username=user.username, status='accepted')
+
+
     # print(accepted_order[0].created_time)
     # TODO
     # نشان دادن بر اساس زمان
